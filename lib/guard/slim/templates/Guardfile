@@ -1,0 +1,5 @@
+options = { :root => Dir.getwd, :locals => {}, :slim => {:pretty => true} }
+
+guard 'slim', options do
+  watch(/^.+\.html\.slim/)
+end
