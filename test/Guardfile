@@ -1,0 +1,14 @@
+Context = Struct.new :title
+
+options = {
+  :input_root  => File.expand_path('../views', __FILE__),
+  :output_root => File.expand_path('../public', __FILE__),
+  :context     => Context.new('Guard-Slim'),
+  :slim        => { :pretty => true }
+}
+
+require File.expand_path('../../lib/guard/slim', __FILE__)
+
+guard 'slim', options do
+  watch(%r'^views/.+\.slim$')
+end
