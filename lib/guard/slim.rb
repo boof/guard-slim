@@ -50,7 +50,7 @@ module Guard
         File.join dirname, basename
       end
       def render(source)
-        Template.new( @slim ) { source }.render( @context )
+        Template.new( @slim ) { source }.render @context
       end
       def all_paths
         Watcher.match_files self, Dir[ ALL ]
