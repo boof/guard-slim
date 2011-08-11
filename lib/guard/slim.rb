@@ -18,7 +18,7 @@ module Guard
     end
 
     def start
-      UI.info 'Guard-Slim is waiting for changes...'
+      UI.info 'Guard-Slim: Waiting for changes...'
     end
 
     def run_all
@@ -32,7 +32,7 @@ module Guard
             file.puts(content) :
             file.write(content)
         end
-        UI.info "guard-slim: rendered #{ path } to #{ build_path path }"
+        UI.info "Guard-Slim: Rendered #{ path } to #{ build_path path }"
       end
     end
 
