@@ -50,7 +50,13 @@ module Guard
         File.join dirname, basename
       end
       def render(source)
-        Template.new( @slim ) { source }.render @context
+        begin
+          Template.new( @slim ) { source }.render @context
+        rescue SyntaxError => se
+          UI.info se.message
+        rescue Exception => e
+          UI.info e.message
+        end
       end
       def all_paths
         Watcher.match_files self, Dir[ ALL ]
